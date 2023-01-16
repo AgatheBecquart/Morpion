@@ -55,10 +55,13 @@ def est_gagnee(grille)-> bool:
             return True
     if grille["A"][2]==grille["B"][2]==grille["C"][2] and grille["A"][2]!=None:
         return False
-    
+
+def est_pleine(grille):
+    if None not in grille["A"] and grille["B"] and grille["C"]:
+        return True
     
 def morpion(grille):
-    while not est_gagnee(grille):
+    while not est_gagnee(grille) and not est_pleine(grille):
         if not est_gagnee(grille):
             jouer_un_coup (grille, "X")
         if not est_gagnee(grille):
